@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Accept a payment</title>
+    <meta name="description" content="Payment using Stripe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="checkout.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="checkout.js" defer></script>
+</head>
+<body>
+<!-- Display a payment form -->
+<form id="payment-form">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" class="form-control" placeholder="Enter your email" required />
+    </div>
+    <div class="form-group">
+        <label for="price">Value</label>
+        <input id="price" name="price" type="text" class="form-control" value="129.90" readonly />
+        <input type="hidden" id="price-unformatted" name="price-unformatted" value="129.90" />
+    </div>
+    <div class="form-group">
+        <label for="course_name">Course</label>
+        <input id="course_name" name="course_name" type="text" class="form-control" value="Course" readonly />
+    </div>
+    <div class="form-group">
+        <label for="course_id">Course ID</label>
+        <input id="course_id" name="course_id" type="text" class="form-control" value="100" readonly />
+    </div>
+    <div id="payment-element">
+    </div>
+    <button id="submit" class="btn btn-primary btn-block">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Check</span>
+    </button>
+    <div id="payment-message" class="hidden mt-3"></div>
+</form>
+
+<div id="payment-message-success" class="alert alert-success hidden mt-3" role="alert">
+    <h4 class="alert-heading">Payment State</h4>
+    <p>Success with payment!</p>
+    <hr>
+    <p class="mb-0">You be redirected to the course page.</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const priceElement = document.getElementById("price");
+        const priceValue = parseFloat(priceElement.value).toLocaleString("en", { style: "currency", currency: "USD" });
+        priceElement.value = priceValue;
+    });
+</script>
+</body>
+</html>
