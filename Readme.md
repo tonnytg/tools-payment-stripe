@@ -38,3 +38,13 @@ https://docs.stripe.com/payments/accept-a-payment?platform=web&ui=elements#web-t
 - https://stripe.com/docs/payments/accept-a-payment
 - https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=elements#web-test-the-integration
 - https://docs.stripe.com/payments/accept-a-payment?ui=elements
+
+
+### Images
+
+This image shows javascript form checking email and create a payment intent with Stripe SDK
+![CheckEmail](check-email.png)
+
+
+This image shows javascript form checking payment and confirm payment with Stripe SDK
+![CheckPayment](check-payment.png)
